@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "parcacik-hareketi-simulatoru"
+version = "0.1.0"
+description = "Relativistic charged-particle motion in electric and magnetic fields: Boris and RK4 pushers validated against closed-form cyclotron, E-cross-B drift, hyperbolic-motion and magnetic-mirror results"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "SafraNako" }]
+dependencies = [
+    "numpy>=2.0",
+    "matplotlib>=3.7",
+    "scipy>=1.11",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+]
+
+[project.scripts]
+parcacik-hareketi-simulatoru = "parcacik_hareketi_simulatoru.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "tests"]
